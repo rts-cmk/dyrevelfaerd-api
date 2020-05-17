@@ -1,6 +1,6 @@
-# trainer-api
+# dyrevelfaerd-api
 
-RESTful web API for the Trainer App.
+RESTful web API for the Dyrevelfærd App.
 
 ## Install
 ```
