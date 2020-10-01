@@ -37,10 +37,14 @@ async function getSingleAsset(req, res, next) {
 async function updateSingleAsset(req, res, next) {
 	try {
 		let asset = await Asset.findByPk(req.params.id);
-		asset.update({
-			url: req.fields.url
-		});
-		res.json(asset);
+
+		if (asset) {
+			asset.url = req.fields.url;
+			asset.save();
+			res.json(asset);
+		} else {
+			res.status(404).end();
+		}
 	} catch(error) {
 		console.error(error);
 		res.status(500).end();
