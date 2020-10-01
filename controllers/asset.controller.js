@@ -5,7 +5,7 @@ async function createSingleAsset(req, res, next) {
 	try {
 		let file = saveFile(req.files.file);
 		let asset = await Asset.create({
-			url: "http://localhost:4000/file-bucket/" + file
+			url: process.env.APP_DOMAIN + "/file-bucket/" + file
 		});
 		res.json(asset);
 	} catch (error) {
@@ -34,8 +34,22 @@ async function getSingleAsset(req, res, next) {
 	}
 }
 
+async function updateSingleAsset(req, res, next) {
+	try {
+		let asset = await Asset.findByPk(req.params.id);
+		asset.update({
+			url: req.fields.url
+		});
+		res.json(asset);
+	} catch(error) {
+		console.error(error);
+		res.status(500).end();
+	}
+}
+
 module.exports = {
 	createSingleAsset,
 	getAllAssets,
-	getSingleAsset
+	getSingleAsset,
+	updateSingleAsset
 };
