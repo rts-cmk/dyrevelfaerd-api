@@ -20,7 +20,7 @@
     "express-winston": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "sequelize": "^5.21.3",
-    "sqlite3": "^4.2.0",
+    "sqlite3": "^5.0.2",
     "winston": "^3.2.1"
   },
   "devDependencies": {
