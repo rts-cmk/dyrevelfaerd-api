@@ -32,7 +32,9 @@ Animal.init({
 }, { sequelize, modelName: "animal" });
 
 Asset.init({
-	url: DataTypes.TEXT
+	url: DataTypes.TEXT,
+	width: DataTypes.INTEGER,
+	height: DataTypes.INTEGER
 }, { sequelize, modelName: "asset" });
 
 Subscriber.init({
