@@ -1,10 +1,11 @@
 var { Asset } = require("../models/models");
 var saveFile = require("../services/asset");
-var imageSize = require("image-size");
+var { imageSize } = require("image-size");
+var { readFileSync } = require("fs");
 
 function getJpgDimensions(filePath) {
 	try {
-		let dimensions = imageSize(filePath);
+		let dimensions = imageSize(readFileSync(filePath));
 
 		if (dimensions && (dimensions.type === "jpg" || dimensions.type === "jpeg")) {
 			return {
