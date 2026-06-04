@@ -43,6 +43,7 @@ async function updateSingleAnimal(req, res, next) {
 			animal.name = req.fields.name;
 			animal.description = req.fields.description;
 			animal.assetId = parseInt(req.fields.assetId);
+			animal.age = parseInt(req.fields.age);
 			animal.save();
 			res.json(animal);
 		} else {
